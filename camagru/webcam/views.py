@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
+from django.contrib.auth.views import LoginView, LogoutView
 
-# Create your views here.
-from .models import Post
+from .forms import RegisterForm
+from .models import Post, Profile
+from django.urls import reverse_lazy
+from django.contrib.auth import authenticate, login
 
 
 class HomePageView(ListView):
@@ -11,3 +14,36 @@ class HomePageView(ListView):
 
     def get_queryset(self):
         return Post.objects.all().order_by('pub_date')[:10]
+
+
+class LoginView(LoginView):
+    template_name = 'login.html'
+    next_page = reverse_lazy("home")
+
+
+class LogoutView(LogoutView):
+    next_page = reverse_lazy("home")
+
+
+def register_view(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            avatar = form.cleaned_data['avatar']
+            raw_password = form.cleaned_data.get('password1')
+            phone = form.cleaned_data.get('phone')
+            email = form.cleaned_data.get('email')
+            Profile.objects.create(
+                user=user,
+                email=email,
+                phone=phone,
+                avatar=avatar
+            )
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = RegisterForm()
+    return render(request, 'register.html', context={'form': form})
