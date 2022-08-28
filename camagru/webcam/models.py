@@ -14,7 +14,7 @@ class Profile(models.Model):
                                 validators=[MinValueValidator(1111111111),
                                             MaxValueValidator(9999999999)],
                                 verbose_name="Номер телефона")
-    email = models.EmailField(max_length=20,
+    email = models.EmailField(max_length=200,
                               blank=True,
                               verbose_name="Электровнная почта",
                               null=True)
