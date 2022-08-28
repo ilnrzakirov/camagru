@@ -23,7 +23,7 @@ from camagru import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('webcam.urls'))
+    path('', include('webcam.urls')),
 ]
 
 if settings.DEBUG:

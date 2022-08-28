@@ -54,9 +54,6 @@ class Comment(models.Model):
                             verbose_name="Комментарий")
     datetime = models.DateTimeField(auto_now=True,
                                     verbose_name="Дата и время")
-    post = models.ForeignKey("Post",
-                             verbose_name="Пост",
-                             on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Коментарий"
@@ -70,12 +67,15 @@ class Post(models.Model):
     image = models.ForeignKey(Picture,
                               on_delete=models.CASCADE,
                               verbose_name="Изображение")
+    pub_date = models.DateTimeField(verbose_name="Дата и время публикации",
+                                    auto_now=True)
     user = models.ForeignKey(Profile,
                              on_delete=models.CASCADE,
                              verbose_name="Пользователь")
     comment = models.ManyToManyField(Comment,
                                      verbose_name="Коментарий",
-                                     blank=True)
+                                     blank=True,
+                                     related_name='posts')
 
     class Meta:
         verbose_name = "Пост"
