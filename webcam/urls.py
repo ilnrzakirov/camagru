@@ -8,7 +8,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
-    path('logout/', LogoutView.as_view, name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('login/', LoginView.as_view(), name='login'),
     path('register/', register_view, name='register'),
 ]

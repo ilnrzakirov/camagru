@@ -22,7 +22,7 @@ class LoginView(LoginView):
 
 
 class LogoutView(LogoutView):
-    next_page = reverse_lazy("home")
+    next_page = "home"
 
 
 def register_view(request):
