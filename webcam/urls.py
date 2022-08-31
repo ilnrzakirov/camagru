@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 
-from .views import HomePageView, LogoutView, LoginView, register_view
+from .views import HomePageView, LogoutView, LoginView, register_view, create_photo_view
 from django.conf import settings
 
 urlpatterns = [
@@ -11,6 +11,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('login/', LoginView.as_view(), name='login'),
     path('register/', register_view, name='register'),
+    path('create/', create_photo_view, name='create')
 ]
 
 

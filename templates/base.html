@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "fontawesome/css/all.min.css" %}">
     <link rel="stylesheet" href="{% static "css/templatemo-style.css" %}">
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
 </head>
 <body>
     <div id="loader-wrapper">
@@ -29,14 +30,19 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
+            {% if request.user.is_authenticated %}
+            <p class="nav-item">Привет {{ request.user.username }}</p>
+                {% else %}
+                <p>Привет друг!</p>
+            {% endif %}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-1 active" aria-current="page" href="">Галерея</a>
+                    <a class="nav-link nav-link-1" aria-current="page" href="">Галерея</a>
                 </li>
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link nav-link-2" href="">Создать снимок</a>
+                        <a class="nav-link nav-link-2" href="{% url 'create' %}">Создать снимок</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-3" href="">Профиль</a>

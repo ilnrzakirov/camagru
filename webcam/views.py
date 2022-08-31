@@ -47,3 +47,7 @@ def register_view(request):
     else:
         form = RegisterForm()
     return render(request, 'register.html', context={'form': form})
+
+
+def create_photo_view(request):
+    return render(request, 'create.html')

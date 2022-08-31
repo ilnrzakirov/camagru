@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Сделать снимок{% endblock %}
+
+{% block content %}
+<div class="contentarea">
+  <div class="camera">
+    <video id="video">Video stream not available.</video>
+    <button id="startbutton">Сделать фото</button>
+  </div>
+  <canvas id="canvas">
+  </canvas>
+    	<div class="output">
+		<img id="photo" alt="The screen capture will appear in this box.">
+	</div>
+
+
+	<div id="pick-image">
+		<form runat="server">
+			<input type='file' accept="image/*" id="imgInp" />
+		</form>
+	</div>
+
+
+	<div class="rex">
+		<button id="clearbutton" class="myButton">Очистить</button>
+
+        <button id="merge" class="myButton">Слияние</button>
+
+		<button id="post" class="myButton">Опубликовать</button>
+	</div>
+<script src="{% static 'js/video.js' %}"></script>
+</div>
+{% endblock %}
