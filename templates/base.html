@@ -23,7 +23,7 @@
 
 <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'home' %}">
                 <i class="fas fa-film mr-2"></i>
                 Camagru
             </a>
@@ -38,7 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-1" aria-current="page" href="">Галерея</a>
+                    <a class="nav-link nav-link-1" aria-current="page" href="{% url 'home' %}">Галерея</a>
                 </li>
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
