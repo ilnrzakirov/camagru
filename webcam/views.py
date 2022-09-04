@@ -4,7 +4,6 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 from .forms import RegisterForm
 from .models import Post, Profile
-from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login
 
 
