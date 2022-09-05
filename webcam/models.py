@@ -81,3 +81,6 @@ class Post(models.Model):
         verbose_name = "Пост"
         verbose_name_plural = "Посты"
 
+
+class ImageFilter(models.Model):
+    image = models.ImageField(upload_to='filter/', verbose_name="Фильтр для снимков")
