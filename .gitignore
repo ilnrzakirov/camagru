@@ -1,0 +1,12 @@
+venv
+media
+webcam/__pycache__
+webcam/migrations/__pycache__
+.DS_Store
+*.sqlite3
+camagru/__pycache__
+.idea/camagru.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/inspectionProfiles
+.idea
