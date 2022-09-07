@@ -55,3 +55,9 @@
   font-family: "Lucida Grande", "Arial", sans-serif;
   width: 760px;
 }
+
+.block-right {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 0;
+}

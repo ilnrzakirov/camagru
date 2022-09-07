@@ -4,6 +4,13 @@
 {% block title %}Сделать снимок{% endblock %}
 
 {% block content %}
+    <div class="block-right">
+        {% if filter %}
+            {% for image in filter %}
+                <img src="{{ image.image.url }}" alt="Image" width="120" height="120">
+            {% endfor %}
+        {% endif %}
+    </div>
 <div class="contentarea">
   <div class="camera">
     <video id="video">Video stream not available.</video>
