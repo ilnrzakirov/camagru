@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate, login
 class HomePageView(ListView):
     model = Post
     template_name = "index.html"
+    context_object_name = "post"
 
     def get_queryset(self):
         return Post.objects.all().order_by('pub_date')[:10]
