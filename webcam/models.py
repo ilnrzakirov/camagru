@@ -81,6 +81,16 @@ class Post(models.Model):
         verbose_name = "Пост"
         verbose_name_plural = "Посты"
 
+    def __str__(self):
+        return f"{self.user.user.username} - {self.pub_date}"
+
 
 class ImageFilter(models.Model):
     image = models.ImageField(upload_to='filter/', verbose_name="Фильтр для снимков")
+
+    class Meta:
+        verbose_name = "Фильтр"
+        verbose_name_plural = "Фильтры для снимков"
+
+    def __str__(self):
+        return self.image.name
