@@ -91,4 +91,4 @@ class ImageFilter(models.Model):
         verbose_name_plural = "Фильтры для снимков"
 
     def __str__(self):
-        return self.image.name
+        return self.name

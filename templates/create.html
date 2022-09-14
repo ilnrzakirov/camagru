@@ -14,6 +14,10 @@
             {% endfor %}
         {% endif %}
     </div>
+    <div><p>Выберите маску</p>
+        {% csrf_token %}
+        {{ form.as_p}}
+    </div>
 <div class="contentarea">
   <div class="camera">
     <video id="video">Video stream not available.</video>
@@ -35,10 +39,9 @@
 
 	<div class="rex">
 		<button id="clearbutton" class="myButton">Очистить</button>
-
-        <button id="merge" class="myButton">Слияние</button>
-
-		<button id="post" class="myButton">Опубликовать</button>
+        <form method="post">
+              {% csrf_token %}
+            <button id="post" class="myButton">Опубликовать</button></form>
 	</div>
 <script src="{% static 'js/video.js' %}"></script>
 </div>

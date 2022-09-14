@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.contrib.auth.views import LoginView, LogoutView
 
-from .forms import RegisterForm
+from .forms import RegisterForm, ImageChoicesForm
 from .models import Post, Profile, ImageFilter
 from django.contrib.auth import authenticate, login
 
@@ -50,5 +50,8 @@ def register_view(request):
 
 
 def create_photo_view(request):
+    if request.method == "POST":
+        print(request.FILES)
     imagefilter = ImageFilter.objects.all()
-    return render(request, 'create.html', context={"filter": imagefilter})
+    form = ImageChoicesForm()
+    return render(request, 'create.html', context={"filter": imagefilter, "form": form})
