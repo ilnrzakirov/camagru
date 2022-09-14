@@ -7,7 +7,10 @@
     <div class="block-right">
         {% if filter %}
             {% for image in filter %}
+                <figure>
                 <img src="{{ image.image.url }}" alt="Image" width="120" height="120">
+                <figcaption>{{ image.name }}</figcaption>
+                </figure>
             {% endfor %}
         {% endif %}
     </div>

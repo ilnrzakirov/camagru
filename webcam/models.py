@@ -84,6 +84,7 @@ class Post(models.Model):
 
 class ImageFilter(models.Model):
     image = models.ImageField(upload_to='filter/', verbose_name="Фильтр для снимков")
+    name = models.CharField(max_length=200, verbose_name="Название маски", null=True, blank=True)
 
     class Meta:
         verbose_name = "Фильтр"
