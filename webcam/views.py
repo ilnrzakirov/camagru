@@ -50,8 +50,6 @@ def register_view(request):
 
 
 def create_photo_view(request):
-    if request.method == "POST":
-        print(request.FILES)
     imagefilter = ImageFilter.objects.all()
     form = ImageChoicesForm()
     return render(request, 'create.html', context={"filter": imagefilter, "form": form})
