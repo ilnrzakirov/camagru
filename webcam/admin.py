@@ -6,7 +6,10 @@ from webcam.models import ImageFilter, Post, Picture
 
 class PostAdmin(admin.ModelAdmin):
     fields = ["user", "pub_date", "comment", "image"]
+    search_fields = ["user"]
+    list_display = ["user", "image"]
+
 
 admin.site.register(ImageFilter)
-admin.site.register(Post)
+admin.site.register(Post, PostAdmin)
 admin.site.register(Picture)
