@@ -20,6 +20,7 @@ class RegisterForm(UserCreationForm):
 class ImageChoicesForm(forms.Form):
     images = ImageFilter.objects.all()
     choices = []
-    for image in images:
-        choices.append((image.name, image.name))
+    if images:
+        for image in images:
+            choices.append((image.name, image.name))
     image_name = forms.ChoiceField(choices=choices)
