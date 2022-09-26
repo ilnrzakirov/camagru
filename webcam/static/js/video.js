@@ -114,7 +114,7 @@
 			// img_src.innerHTML = `<input type="hidden" name="test" value="${data}">`;
 			// pic_list.appendChild(img_src);
 			// document.getElementById('preview').submit();
-			// console.log("\n" + data + "\n");
+			console.log("\n" + data + "\n");
 			photo.setAttribute('src', data);
 
 			document.getElementById("merge").disabled = false;
