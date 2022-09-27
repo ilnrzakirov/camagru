@@ -16,6 +16,12 @@ class PictureAdmin(admin.ModelAdmin):
     list_display = ["title"]
 
 
-admin.site.register(ImageFilter)
+class ImageFilterAdmin(admin.ModelAdmin):
+    fields = ["name", "image"]
+    search_fields = ["name"]
+    list_display = ["name"]
+
+
+admin.site.register(ImageFilter, ImageFilterAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Picture, PictureAdmin)
